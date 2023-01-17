@@ -1,0 +1,21 @@
+
+--
+    create docker postgre image 
+    DB NAME=testing_db, DB PORT=5432:5432, DB PWD=mysecretpassword
+--
+docker run --name testing_db -p 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword -d postgres
+
+-- show docker images --
+docker ps -a
+
+-- start postgre server --
+docker exec -it <PSQL-Container-ID or name> bash
+
+
+-- 
+    enter postgre server 
+    -h(host name) = localhost, 
+    -p(port) = 5432 as ealier
+    -U (username) = postgres
+--
+psql -h localhost -p 5432 -U postgres -W
